@@ -102,7 +102,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 9
- testRunner.Given("[I logged into my wallet account with my phone as a wallet user named Dariush]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("[I logged into my wallet account with my phone as an user named Dariush]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 10
  testRunner.And("[I add $\'20000000\' rials to my wallet credit]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -111,10 +111,10 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.When("[I want to pay the amount of $\'1500000\' rials to finalize my order]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 12
- testRunner.Then("[I should be able to pay]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("[My payment must be successful]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 13
- testRunner.And("[My new wallet balance must be equal current balance to minus purchase cost]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("[My wallet credit must be equal to last wallet balance minus purchase cost]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -141,7 +141,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 17
- testRunner.Given("[I logged into my wallet account with my phone as a wallet user named Reza]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("[I logged into my wallet account with my phone as an user named Reza]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 18
  testRunner.And("[I charged my wallet account $\'5000000\' rials]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

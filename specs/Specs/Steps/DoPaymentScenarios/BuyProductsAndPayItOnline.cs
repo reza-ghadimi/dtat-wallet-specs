@@ -5,21 +5,14 @@ namespace Specs.Steps.DoPaymentScenarios;
 public partial class DoPaymentStepDefinitions
 {
 	[TechTalk.SpecFlow.Given
-		(@"\[I logged into my wallet account with my phone as a wallet user named Dariush]")]
-	public void GivenILoggedIntoMyWalletAccountWithMyPhoneAsAWalletUserNamedDariush()
+		(@"\[I logged into my wallet account with my phone as an user named Dariush]")]
+	public void GivenILoggedIntoMyWalletAccountWithMyPhoneAsAbUserNamedDariush()
 	{
-		// **************************************************
 		WalletUser = Constants.Helpers.Actor.Dariush;
-		// **************************************************
 
 		// **************************************************
-		PaymentRequestBuilder =
-			TestBuilders.RequestPaymentBuilder
-			.Create().MapUserInformation(user: WalletUser)
-			;
-		// **************************************************
-
 		Stage.ShineSpotlightOn(actorName: WalletUser.DisplayName);
+		// **************************************************
 	}
 
 	[TechTalk.SpecFlow.Given
@@ -38,37 +31,34 @@ public partial class DoPaymentStepDefinitions
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: doDepositeTask);
 		// **************************************************
-
-		// **************************************************
-		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
-			(question: Technical.Rest.Questions.LastRequestDepositeResponseApi.LastRequestDepositeResponse);
-
-		currentTransactionResponse.IsSuccess.Should().BeTrue();
-		// **************************************************
 	}
 
 	[TechTalk.SpecFlow.When
 		(@"\[I want to pay the amount of \$'(.*)' rials to finalize my order]")]
 	public void WhenIWantToPayTheAmountOfRialsToFinalizeMyOrder(decimal amount)
 	{
-		PaymentRequestBuilder.WithAmount(amount: amount);
-	}
-
-	[TechTalk.SpecFlow.Then(@"\[I should be able to pay]")]
-	public void ThenIShouldBeAbleToPay()
-	{
 		// **************************************************
-		var doPaymentRequest =
-			PaymentRequestBuilder
-			.Build();
+		_doPaymentRequest =
+			TestBuilders.RequestPaymentBuilder
+			.Create()
+			.WithAmount(amount: amount)
+			.MapUserInformation(user: WalletUser)
+			.Build()
+			;
+		// **************************************************
 
+		// **************************************************
 		var doPaymentTask =
 			Screenplay.Tasks.DoTransaction.Payment
-			(request: doPaymentRequest);
+			(request: _doPaymentRequest);
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: doPaymentTask);
 		// **************************************************
+	}
 
+	[TechTalk.SpecFlow.Then(@"\[My payment must be successful]")]
+	public void ThenMyPaymentMustBeSuccessful()
+	{
 		// **************************************************
 		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
 			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
@@ -78,8 +68,8 @@ public partial class DoPaymentStepDefinitions
 	}
 
 	[TechTalk.SpecFlow.Then
-		(@"\[My new wallet balance must be equal current balance to minus purchase cost]")]
-	public void ThenMyNewWalletBalanceMustBeEqualCurrentBalanceToMinusPurchaseCost()
+		(@"\[My wallet credit must be equal to last wallet balance minus purchase cost]")]
+	public void ThenMyWalletCreditMustBeEqualToLastWalletBalanceMinusPurchaseCost()
 	{
 		// **************************************************
 		var getBalanceRequest =

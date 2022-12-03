@@ -5,23 +5,17 @@ namespace Specs.Steps.DoPaymentScenarios;
 
 public partial class DoPaymentStepDefinitions
 {
+	private Models.PaymentRequest? _doPaymentRequest;
+
 	[TechTalk.SpecFlow.Given
-		(@"\[I logged into my wallet account with my phone as a wallet user named Reza]")]
-	public void GivenILoggedIntoMyWalletAccountWithMyPhoneAsAWalletUserNamedReza()
+		(@"\[I logged into my wallet account with my phone as an user named Reza]")]
+	public void GivenILoggedIntoMyWalletAccountWithMyPhoneAsAnUserNamedReza()
 	{
-		// **************************************************
 		WalletUser = Constants.Helpers.Actor.Reza;
-		// **************************************************
 
 		// **************************************************
-		PaymentRequestBuilder =
-			TestBuilders.RequestPaymentBuilder
-			.Create()
-			.MapUserInformation(user: WalletUser)
-			;
-		// **************************************************
-
 		Stage.ShineSpotlightOn(actorName: WalletUser.DisplayName);
+		// **************************************************
 	}
 
 	[TechTalk.SpecFlow.Given(@"\[I charged my wallet account \$'([^']*)' rials]")]
@@ -40,13 +34,6 @@ public partial class DoPaymentStepDefinitions
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: makingDepositeTask);
 		// **************************************************
-
-		// **************************************************
-		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
-			(question: Technical.Rest.Questions.LastRequestDepositeResponseApi.LastRequestDepositeResponse);
-
-		currentTransactionResponse.IsSuccess.Should().BeTrue();
-		// **************************************************
 	}
 
 	[TechTalk.SpecFlow.Given(@"\[I want to spend more than my wallet credit]")]
@@ -61,7 +48,13 @@ public partial class DoPaymentStepDefinitions
 		var myNewOrderPrice =
 			myWalletBalanceAfterLastSuccessfulTransaction!.Value * 2;
 
-		PaymentRequestBuilder.WithAmount(amount: myNewOrderPrice);
+		_doPaymentRequest =
+			TestBuilders.RequestPaymentBuilder
+			.Create()
+			.WithAmount(amount: myNewOrderPrice)
+			.MapUserInformation(user: WalletUser)
+			.Build()
+			;
 		// **************************************************
 	}
 
@@ -70,18 +63,13 @@ public partial class DoPaymentStepDefinitions
 	public void WhenIWantToPayThePriceToFinalizeMyNewOrder()
 	{
 		// **************************************************
-		var doPaymentRequest =
-			PaymentRequestBuilder
-			.Build();
-
 		var doPaymentTask =
 			Screenplay.Tasks.DoTransaction.Payment
-			(request: doPaymentRequest);
+			(request: _doPaymentRequest!);
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: doPaymentTask);
 		// **************************************************
 	}
-
 
 	[Then(@"\[I should get insufficient balance error]")]
 	public void ThenIShouldGetInsufficientBalanceError()
