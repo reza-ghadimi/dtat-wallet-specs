@@ -40,6 +40,13 @@ public partial class DoPaymentStepDefinitions
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: makingDepositeTask);
 		// **************************************************
+
+		// **************************************************
+		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
+			(question: Technical.Rest.Questions.LastRequestDepositeResponseApi.LastRequestDepositeResponse);
+
+		currentTransactionResponse.IsSuccess.Should().BeTrue();
+		// **************************************************
 	}
 
 	[TechTalk.SpecFlow.Given(@"\[I want to spend more than my wallet credit]")]

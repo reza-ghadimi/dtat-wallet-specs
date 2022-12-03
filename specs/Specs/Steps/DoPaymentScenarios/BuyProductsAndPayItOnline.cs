@@ -19,9 +19,7 @@ public partial class DoPaymentStepDefinitions
 			;
 		// **************************************************
 
-		// **************************************************
 		Stage.ShineSpotlightOn(actorName: WalletUser.DisplayName);
-		// **************************************************
 	}
 
 	[TechTalk.SpecFlow.Given
@@ -39,6 +37,13 @@ public partial class DoPaymentStepDefinitions
 			Screenplay.Tasks.DoTransaction.Deposite(request: doDepositeRequest);
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: doDepositeTask);
+		// **************************************************
+
+		// **************************************************
+		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
+			(question: Technical.Rest.Questions.LastRequestDepositeResponseApi.LastRequestDepositeResponse);
+
+		currentTransactionResponse.IsSuccess.Should().BeTrue();
 		// **************************************************
 	}
 
@@ -62,6 +67,13 @@ public partial class DoPaymentStepDefinitions
 			(request: doPaymentRequest);
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: doPaymentTask);
+		// **************************************************
+
+		// **************************************************
+		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
+			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
+
+		currentTransactionResponse.IsSuccess.Should().BeTrue();
 		// **************************************************
 	}
 
