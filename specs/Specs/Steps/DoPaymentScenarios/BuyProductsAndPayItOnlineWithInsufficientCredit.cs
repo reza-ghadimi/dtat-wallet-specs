@@ -75,11 +75,11 @@ public partial class DoPaymentStepDefinitions
 	public void ThenIShouldGetInsufficientBalanceError()
 	{
 		// **************************************************
-		var lastPaymentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
+		var lastTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
 			(Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
 
-		lastPaymentTransactionResponse.Data.Should().BeNull();
-		lastPaymentTransactionResponse.IsSuccess.Should().BeFalse();
+		lastTransactionResponse.Data.Should().BeNull();
+		lastTransactionResponse.IsSuccess.Should().BeFalse();
 
 		//var errorMessage =
 		//	$"The amount value is more than user balance value!";

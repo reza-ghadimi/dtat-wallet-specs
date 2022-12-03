@@ -86,17 +86,16 @@ public partial class DoPaymentStepDefinitions
 		// **************************************************
 
 		// **************************************************
-		var currentBalanceResponse = Stage.ActorInTheSpotlight.AsksFor
+		var myCurrentWalletBalanceResponse = Stage.ActorInTheSpotlight.AsksFor
 			(question: Technical.Rest.Questions.CurrentBalanceApi.CurrentBalance);
 
-		var lastDoPaymentResponse = Stage.ActorInTheSpotlight.AsksFor
+		var lastTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
 			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
 		// **************************************************
 
 		// **************************************************
-		lastDoPaymentResponse.Data.Should().NotBeNull();
-		lastDoPaymentResponse.IsSuccess.Should().BeTrue();
-		lastDoPaymentResponse!.Data!.Balance.Should().Be(expected: currentBalanceResponse.Data);
+		lastTransactionResponse.Data.Should().NotBeNull();
+		lastTransactionResponse!.Data!.Balance.Should().Be(expected: myCurrentWalletBalanceResponse.Data);
 		// **************************************************
 	}
 }
