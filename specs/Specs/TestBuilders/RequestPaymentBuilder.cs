@@ -156,7 +156,7 @@ internal class RequestPaymentBuilder : object
 		{
 			User = user,
 			Amount = Amount,
-			WaletToken = WalletToken,
+			WalletToken = WalletToken,
 			CompanyToken = CompanyToken,
 			ReferenceCode = ReferenceCode,
 			AdditionalData = AdditionalData,

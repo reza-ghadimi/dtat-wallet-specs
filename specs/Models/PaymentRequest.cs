@@ -17,7 +17,7 @@ public class PaymentRequest : object
 
 	public decimal Amount { get; set; }
 
-	public System.Guid WaletToken { get; set; }
+	public System.Guid WalletToken { get; set; }
 
 	public System.Guid CompanyToken { get; set; }
 

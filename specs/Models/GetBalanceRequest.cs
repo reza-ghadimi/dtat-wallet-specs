@@ -13,7 +13,7 @@ public class GetBalanceRequest : object
 
 	public GetBalanceRequestUser User { get; set; }
 
-	public System.Guid WaletToken { get; set; }
+	public System.Guid WalletToken { get; set; }
 
 	public System.Guid CompanyToken { get; set; }
 

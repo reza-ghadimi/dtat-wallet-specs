@@ -101,7 +101,7 @@ public class GetBalanceBuilder : object
 			new Models.GetBalanceRequest()
 			{
 				User = user,
-				WaletToken = WalletToken,
+				WalletToken = WalletToken,
 				CompanyToken = CompanyToken,
 			};
 
