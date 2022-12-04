@@ -13,7 +13,7 @@ Scenario: [Buy products and pay it online]
 	When [I want to pay the amount of $'1500000' rials to finalize my order]
 	Then [My payment must be successful]
 	And [My wallet credit must be equal to last wallet balance minus purchase cost]
-	
+
 @Api-Level
 Scenario: [Buy products and pay it online with insufficient credit]
 	Given [I logged into my wallet account with my phone as an user named Reza]
