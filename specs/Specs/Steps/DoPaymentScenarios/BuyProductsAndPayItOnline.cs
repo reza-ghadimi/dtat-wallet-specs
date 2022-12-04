@@ -1,4 +1,5 @@
 ﻿using FluentAssertions;
+using TechTalk.SpecFlow.Assist;
 
 namespace Specs.Steps.DoPaymentScenarios;
 
@@ -6,9 +7,12 @@ public partial class DoPaymentStepDefinitions
 {
 	[TechTalk.SpecFlow.Given
 		(@"\[I logged into my wallet account with my phone as an user named Dariush]")]
-	public void GivenILoggedIntoMyWalletAccountWithMyPhoneAsAbUserNamedDariush()
+	public void GivenILoggedIntoMyWalletAccountWithMyPhoneAsAbUserNamedDariush(TechTalk.SpecFlow.Table table)
 	{
-		WalletUser = Constants.Helpers.Actor.Dariush;
+		//WalletUser = Constants.Helpers.Actor.Dariush;
+
+		WalletUser =
+			table.CreateInstance<Models.Entities.User>();
 
 		// **************************************************
 		Stage.ShineSpotlightOn(actorName: WalletUser.DisplayName);

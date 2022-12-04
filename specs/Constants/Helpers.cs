@@ -12,7 +12,7 @@ public static class Helpers : object
 		{
 		}
 
-		public static readonly Models.Entities.User Dariush = new
+		public static readonly Models.Entities.User Dariush = Models.Entities.User.Create
 		(
 			ip: "127.0.0.1",
 			nationalCode: "1234567891",
@@ -21,7 +21,7 @@ public static class Helpers : object
 			emailAddress: "dariusht@gmail.com"
 		);
 
-		public static readonly Models.Entities.User Reza = new
+		public static readonly Models.Entities.User Reza = Models.Entities.User.Create
 		(
 			ip: "127.0.0.1",
 			displayName: "رضا قدیمی",

@@ -101,19 +101,31 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
+                TechTalk.SpecFlow.Table table1 = new TechTalk.SpecFlow.Table(new string[] {
+                            "IP",
+                            "NationalCode",
+                            "DisplayName",
+                            "cellPhoneNumber",
+                            "EmailAddress"});
+                table1.AddRow(new string[] {
+                            "127.0.0.1",
+                            "1234567891",
+                            "Mr. Dariush Tasdighi",
+                            "09121087461",
+                            "dariusht@gmail.com"});
 #line 9
- testRunner.Given("[I logged into my wallet account with my phone as an user named Dariush]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 10
- testRunner.And("[I add $\'20000000\' rials to my wallet credit]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 11
- testRunner.When("[I want to pay the amount of $\'1500000\' rials to finalize my order]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.Given("[I logged into my wallet account with my phone as an user named Dariush]", ((string)(null)), table1, "Given ");
 #line hidden
 #line 12
- testRunner.Then("[My payment must be successful]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.And("[I add $\'20000000\' rials to my wallet credit]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
+ testRunner.When("[I want to pay the amount of $\'1500000\' rials to finalize my order]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+ testRunner.Then("[My payment must be successful]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 15
  testRunner.And("[My wallet credit must be equal to last wallet balance minus purchase cost]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
@@ -130,7 +142,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "Api-Level"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("[Buy products and pay it online with insufficient credit]", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -140,22 +152,34 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
- testRunner.Given("[I logged into my wallet account with my phone as an user named Reza]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 18
- testRunner.And("[I charged my wallet account $\'5000000\' rials]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
+                TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
+                            "IP",
+                            "NationalCode",
+                            "DisplayName",
+                            "cellPhoneNumber",
+                            "EmailAddress"});
+                table2.AddRow(new string[] {
+                            "127.0.0.1",
+                            "1987654321",
+                            "Mr. Reza Qadimi",
+                            "09215149218",
+                            "RezaQadimi.ir@Gmail.com"});
 #line 19
- testRunner.And("[I want to spend more than my wallet credit]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 20
- testRunner.When("[I want to pay the price to finalize my new order]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 21
- testRunner.Then("[I should get insufficient balance error]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Given("[I logged into my wallet account with my phone as an user named Reza]", ((string)(null)), table2, "Given ");
 #line hidden
 #line 22
+ testRunner.And("[I charged my wallet account $\'5000000\' rials]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 23
+ testRunner.And("[I want to spend more than my wallet credit]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 24
+ testRunner.When("[I want to pay the price to finalize my new order]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 25
+ testRunner.Then("[I should get insufficient balance error]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 26
  testRunner.And("[my wallet credit must remain unchanged]", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
