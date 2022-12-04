@@ -43,8 +43,7 @@ public partial class DoPaymentStepDefinitions
 			.Create()
 			.WithAmount(amount: amount)
 			.MapUserInformation(user: WalletUser)
-			.Build()
-			;
+			.Build();
 		// **************************************************
 
 		// **************************************************
