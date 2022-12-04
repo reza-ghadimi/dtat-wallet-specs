@@ -105,7 +105,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "IP",
                             "NationalCode",
                             "DisplayName",
-                            "cellPhoneNumber",
+                            "CellPhoneNumber",
                             "EmailAddress"});
                 table1.AddRow(new string[] {
                             "127.0.0.1",
@@ -156,7 +156,7 @@ this.ScenarioInitialize(scenarioInfo);
                             "IP",
                             "NationalCode",
                             "DisplayName",
-                            "cellPhoneNumber",
+                            "CellPhoneNumber",
                             "EmailAddress"});
                 table2.AddRow(new string[] {
                             "127.0.0.1",

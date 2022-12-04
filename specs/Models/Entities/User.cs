@@ -12,7 +12,9 @@ public class User : object
 		return user;
 	}
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 	public User() : base()
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
 	{
 	}
 
@@ -27,13 +29,13 @@ public class User : object
 		CellPhoneNumber = cellPhoneNumber;
 	}
 
-	public string? IP { get; private set; }
+	public string IP { get; private set; }
 
-	public string? DisplayName { get; private set; }
+	public string DisplayName { get; private set; }
 
-	public string? NationalCode { get; private set; }
+	public string NationalCode { get; private set; }
 
-	public string? EmailAddress { get; private set; }
+	public string EmailAddress { get; private set; }
 
-	public string? CellPhoneNumber { get; private set; }
+	public string CellPhoneNumber { get; private set; }
 }
