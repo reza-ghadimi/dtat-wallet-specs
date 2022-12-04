@@ -61,7 +61,7 @@ public partial class DoPaymentStepDefinitions
 	{
 		// **************************************************
 		var currentTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
-			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
+			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.Instance);
 
 		currentTransactionResponse.IsSuccess.Should().BeTrue();
 		// **************************************************
@@ -87,10 +87,10 @@ public partial class DoPaymentStepDefinitions
 
 		// **************************************************
 		var myCurrentWalletBalanceResponse = Stage.ActorInTheSpotlight.AsksFor
-			(question: Technical.Rest.Questions.CurrentBalanceApi.CurrentBalance);
+			(question: Technical.Rest.Questions.CurrentBalanceApi.Instance);
 
 		var lastTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
-			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
+			(question: Technical.Rest.Questions.LastMakingPaymentResponseApi.Instance);
 		// **************************************************
 
 		// **************************************************

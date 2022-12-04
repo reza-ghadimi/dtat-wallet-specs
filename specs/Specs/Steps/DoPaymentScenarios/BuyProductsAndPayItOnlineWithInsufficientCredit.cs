@@ -42,7 +42,7 @@ public partial class DoPaymentStepDefinitions
 		// **************************************************
 		var myWalletBalanceAfterLastSuccessfulTransaction =
 			Stage.ActorInTheSpotlight.AsksFor(question: Technical.Rest.Questions
-			.LastRequestDepositeResponseApi.LastRequestDepositeResponse)
+			.LastRequestDepositeResponseApi.Instance)
 			?.Data?.Balance;
 
 		var myNewOrderPrice =
@@ -76,7 +76,7 @@ public partial class DoPaymentStepDefinitions
 	{
 		// **************************************************
 		var lastTransactionResponse = Stage.ActorInTheSpotlight.AsksFor
-			(Technical.Rest.Questions.LastMakingPaymentResponseApi.LastMakingPaymentResponse);
+			(Technical.Rest.Questions.LastMakingPaymentResponseApi.Instance);
 
 		lastTransactionResponse.Data.Should().BeNull();
 		lastTransactionResponse.IsSuccess.Should().BeFalse();
@@ -94,7 +94,7 @@ public partial class DoPaymentStepDefinitions
 		// **************************************************
 		var myWalletBalanceAfterLastSuccessfulTransaction =
 			Stage.ActorInTheSpotlight.AsksFor
-			(Technical.Rest.Questions.LastRequestDepositeResponseApi.LastRequestDepositeResponse)
+			(Technical.Rest.Questions.LastRequestDepositeResponseApi.Instance)
 			?.Data?.Balance;
 		// **************************************************
 
@@ -112,7 +112,7 @@ public partial class DoPaymentStepDefinitions
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: getCurrentBalanceTask);
 
 		var myCurrentWalletBalance = Stage.ActorInTheSpotlight.AsksFor
-			(question: Technical.Rest.Questions.CurrentBalanceApi.CurrentBalance)?.Data;
+			(question: Technical.Rest.Questions.CurrentBalanceApi.Instance)?.Data;
 		// **************************************************
 
 		// **************************************************

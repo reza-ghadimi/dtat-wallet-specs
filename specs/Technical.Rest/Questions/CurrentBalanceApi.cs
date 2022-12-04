@@ -5,7 +5,7 @@ namespace Technical.Rest.Questions;
 public class CurrentBalanceApi : Shared.Questions.LastBalance
 {
 	#region Static Member(s)
-	public static CurrentBalanceApi CurrentBalance
+	public static CurrentBalanceApi Instance
 	{
 		get
 		{

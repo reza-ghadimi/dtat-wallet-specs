@@ -5,7 +5,7 @@ namespace Technical.Rest.Questions;
 public class LastRequestDepositeResponseApi : Shared.Questions.LastRequestDepositeResponse
 {
 	#region Static Member(s)
-	public static LastRequestDepositeResponseApi LastRequestDepositeResponse
+	public static LastRequestDepositeResponseApi Instance
 	{
 		get
 		{
