@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Specs.Screenplay.Tasks;
+﻿namespace Specs.Screenplay.Tasks;
 
 public static class DoTransaction : object
 {
