@@ -114,12 +114,14 @@ public partial class DoPaymentStepDefinitions
 
 		Stage.ActorInTheSpotlight.AttemptsTo(tasks: getCurrentBalanceTask);
 
-		var myCurrentWalletBalance = Stage.ActorInTheSpotlight.AsksFor
+		var myCurrentWalletBalanceResult = Stage.ActorInTheSpotlight.AsksFor
 			(question: Technical.Rest.Questions.CurrentBalanceApi.Instance)?.Data;
 		// **************************************************
 
 		// **************************************************
-		myCurrentWalletBalance.Should()
+		myCurrentWalletBalanceResult.Should().NotBeNull();
+
+		myCurrentWalletBalanceResult!.Balance.Should()
 			.Be(expected: myWalletBalanceAfterLastSuccessfulTransaction);
 		// **************************************************
 	}

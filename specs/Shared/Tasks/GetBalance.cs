@@ -21,7 +21,7 @@ public abstract class GetBalance : object, Suzianna.Core.Screenplay.ITask
 	}
 
 	protected abstract
-		Infrastructure.Result<decimal?>
+		Infrastructure.Result<Models.GetBalanceResponse>
 		Execute<T>(T actor)
 		where T : Suzianna.Core.Screenplay.Actors.Actor;
 }

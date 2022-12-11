@@ -98,7 +98,7 @@ public partial class DoPaymentStepDefinitions
 
 		// **************************************************
 		lastTransactionResponse.Data.Should().NotBeNull();
-		lastTransactionResponse!.Data!.Balance.Should().Be(expected: myCurrentWalletBalanceResponse.Data);
+		lastTransactionResponse!.Data!.Balance.Should().Be(expected: myCurrentWalletBalanceResponse!.Data!.Balance);
 		// **************************************************
 	}
 }

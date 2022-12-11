@@ -10,7 +10,7 @@ public class GetBalanceApi : Shared.Tasks.GetBalance
 	}
 
 	protected override
-		Shared.Infrastructure.Result<decimal?> Execute<T>(T actor)
+		Shared.Infrastructure.Result<Models.GetBalanceResponse> Execute<T>(T actor)
 	{
 		var task =
 			Suzianna.Rest.Screenplay.Interactions.Post.DataAsJson(content: Request)
@@ -20,7 +20,7 @@ public class GetBalanceApi : Shared.Tasks.GetBalance
 
 		var question =
 			Suzianna.Rest.Screenplay.Questions.LastResponse.Content
-			<Shared.Infrastructure.Result<decimal?>>();
+			<Shared.Infrastructure.Result<Models.GetBalanceResponse>>();
 
 		var result =
 			actor.AsksFor

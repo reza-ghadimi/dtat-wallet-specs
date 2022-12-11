@@ -1,6 +1,4 @@
-﻿using Models;
-
-namespace Technical.Rest.Questions;
+﻿namespace Technical.Rest.Questions;
 
 public class CurrentBalanceApi : Shared.Questions.LastBalance
 {
@@ -21,9 +19,9 @@ public class CurrentBalanceApi : Shared.Questions.LastBalance
 	#endregion /Constructor(s)
 
 	#region Execute()
-	public override Shared.Infrastructure.Result<decimal>
+	public override Shared.Infrastructure.Result<Models.GetBalanceResponse>
 		Execute
-		(GetBalanceRequest request,
+		(Models.GetBalanceRequest request,
 		Suzianna.Core.Screenplay.Actors.Actor actor)
 	{
 		var path = $"Users/GetBalance";
@@ -35,7 +33,7 @@ public class CurrentBalanceApi : Shared.Questions.LastBalance
 
 		var question =
 			Suzianna.Rest.Screenplay.Questions.LastResponse
-			.Content<Shared.Infrastructure.Result<decimal>>();
+			.Content<Shared.Infrastructure.Result<Models.GetBalanceResponse>>();
 
 		var result =
 			actor.AsksFor(question: question);
