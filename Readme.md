@@ -9,7 +9,7 @@ This repository contains a **Behavior-Driven Development (BDD) test suite** for 
 
 ## **📝 Project Description**
 
-This BDD test suite is designed to verify the functionality of the Hasti Wallet system using modern testing methodologies. The project is built on **.NET 7** and employs various testing packages to ensure high reliability and accuracy in financial transactions.
+This BDD test suite is designed to verify the functionality of the Hasti Wallet system using modern testing methodologies. The project is built on **.NET 6** and employs various testing packages to ensure high reliability and accuracy in financial transactions.
 
 ---
 
@@ -29,7 +29,7 @@ This BDD test suite is designed to verify the functionality of the Hasti Wallet 
 
 Ensure you have installed the following dependencies:
 
-- **.NET 7** ([Download & Install](https://dotnet.microsoft.com/en-us/download/dotnet/7.0))
+- **.NET 6** ([Download & Install](https://dotnet.microsoft.com/en-us/download/dotnet/6.0))
 - **SQL Server**
 
 ---
